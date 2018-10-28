@@ -606,7 +606,7 @@ func! s:CSSIndent()
   " When the line starts with '*' or the previous line starts with "/*"
   " and does not end in "*/", use C indenting to format the comment.
   " Adopted $VIMRUNTIME/indent/css.vim
-  let curtext = getline(v:lnum)
+  let curtext = getline(v:lnum - 1)
   if curtext =~ '^\s*[*]'
         \ || (v:lnum > 1 && getline(v:lnum - 1) =~ '\s*/\*'
         \     && getline(v:lnum - 1) !~ '\*/\s*$')
